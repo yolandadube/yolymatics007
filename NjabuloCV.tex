@@ -1,0 +1,304 @@
+\documentclass[9pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{marvosym}
+\usepackage{pifont}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{multicol}
+
+\geometry{left=1.1cm, right=1.1cm, top=0.5cm, bottom=0.5cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+% Colors
+\definecolor{primary}{HTML}{1A365D}
+\definecolor{accent}{HTML}{3182CE}
+\definecolor{darktext}{HTML}{2D3748}
+\definecolor{graytext}{HTML}{718096}
+\definecolor{lightline}{HTML}{CBD5E0}
+\definecolor{lightbg}{HTML}{EDF2F7}
+\definecolor{success}{HTML}{276749}
+
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent}
+\pagestyle{empty}
+
+\newcommand{\cvsection}[1]{%
+    \vspace{0.1cm}
+    {\color{primary}\normalsize\bfseries\MakeUppercase{#1}}\\[-0.12cm]
+    {\color{accent}\rule{\textwidth}{1pt}}
+    \vspace{0.06cm}
+}
+
+\newcommand{\job}[4]{%
+    {\color{primary}\bfseries #1}\hfill{\color{graytext}\small #3}\\[0.01cm]
+    {\color{accent}\bfseries\small #2}\hfill{\color{graytext}\small\itshape #4}\\[0.04cm]
+}
+
+\newcommand{\edu}[4]{%
+    {\color{primary}\bfseries #1}\hfill{\color{graytext}\small #3}\\[0.01cm]
+    {\color{darktext}\small #2}\hfill{\color{accent}\bfseries\small #4}\\[0.06cm]
+}
+
+\newcommand{\bb}[1]{{\color{accent}\ding{118}}\hspace{0.05cm}{\color{darktext}\small #1}\\[0.01cm]}
+\newcommand{\bd}[1]{{\color{accent}\textbullet}\hspace{0.04cm}{\color{darktext}\small #1}\\[0.005cm]}
+
+\begin{document}
+
+% ========== HEADER ==========
+\begin{center}
+{\fontsize{20}{24}\selectfont\color{primary}\bfseries NJABULO NCUBE}\\[0.1cm]
+{\normalsize\color{accent}\bfseries Mathematics \& Statistics Educator}\\[0.12cm]
+{\color{graytext}\small
+\Mundus\ 3166 Nketa 7, Bulawayo, Zimbabwe\quad\textbar\quad
+\Telefon\ +263 771 036 960\quad\textbar\quad
+\Letter\ jaymabuza9@gmail.com
+}
+\end{center}
+\vspace{-0.12cm}
+{\color{lightline}\hrule height 0.3pt}
+
+% ========== SUMMARY ==========
+\cvsection{Professional Summary}
+
+{\color{darktext}\small
+Award-winning mathematics educator with \textbf{over 6 years of excellence} across Zimbabwe's leading institutions. Appointed \textbf{National A-Level Statistics Examiner} by ZIMSEC. Achieved \textbf{100\% pass rates} in multiple subjects. Recognized as \textbf{Best Matabeleland South Province A-Level Statistics Teacher 2024} and \textbf{1st in O-Level Pure Mathematics} among all Methodist Church Schools in Zimbabwe. Combines rigorous academic instruction with sports coaching and student mentorship.
+}
+
+% ========== HIGHLIGHTS ==========
+\cvsection{Key Achievements \& Awards}
+
+\vspace{-0.08cm}
+\colorbox{lightbg}{%
+\begin{minipage}{\dimexpr\textwidth-4pt}
+\vspace{0.05cm}
+\begin{multicols}{2}
+\bb{\textbf{Best A-Level Statistics Teacher} -- Mat. South 2024}
+\bb{\textbf{1st Position} -- O-Level Pure Maths, Methodist Schools}
+\bb{\textbf{National Examiner} -- A-Level Statistics (ZIMSEC)}
+\columnbreak
+\bb{\textbf{2nd Position} -- A-Level Statistics, Methodist Schools}
+\bb{\textbf{100\% Pass Rates} -- Multiple subjects 2023-2024}
+\bb{\textbf{Distinction} -- Teaching Practice 2018}
+\end{multicols}
+\vspace{0.01cm}
+\end{minipage}%
+}
+
+% ========== EDUCATION ==========
+\cvsection{Education \& Qualifications}
+
+\edu{BSc Education Honours (Mathematics \& Statistics)}{National University of Science and Technology (NUST)}{2022}{Upper Second Class}
+\bd{Advanced mathematics pedagogy, curriculum development, educational research methods}
+
+\edu{Diploma in Education (Applied \& Pure Mathematics)}{University of Zimbabwe / Hillside Teachers College}{2018}{Distinction}
+\bd{Distinction in Teaching Practice; Vice President of Students Representative Council}
+
+\edu{Advanced Level -- Mathematics, Accounting, Business Studies (3 Passes)}{ZIMSEC}{}{}
+\edu{Ordinary Level -- 8 Passes including Mathematics, English, Science}{ZIMSEC}{}{}
+
+% ========== EXPERIENCE ==========
+\cvsection{Professional Experience}
+
+\job{Senior Mathematics, Statistics \& Mechanics Teacher}{Thekwane High School, Plumtree}{Jan 2021 -- Present}{Methodist Boarding School | 800+ Learners}
+
+{\color{primary}\bfseries\small Key Responsibilities:}
+\bd{Delivering instruction in Pure Mathematics, Statistics, and Mechanics at O-Level and A-Level}
+\bd{Developing lesson plans aligned with ZIMSEC curriculum; preparing students for national exams}
+\bd{Class Teacher with pastoral care; providing individualized support through extra lessons}
+\bd{Coaching athletics (track \& field); coordinating tennis programs; mentoring junior teachers}
+
+{\color{primary}\bfseries\small Examination Results:}\\[0.03cm]
+\renewcommand{\arraystretch}{1.05}
+\scriptsize
+\begin{tabular}{|>{\columncolor{lightbg}}p{0.30\textwidth}|p{0.30\textwidth}|>{\columncolor{lightbg}}p{0.30\textwidth}|}
+\hline
+\rowcolor{accent}
+\multicolumn{1}{|c|}{\color{white}\bfseries 2024} & 
+\multicolumn{1}{c|}{\color{white}\bfseries 2023} & 
+\multicolumn{1}{c|}{\color{white}\bfseries 2022} \\
+\hline
+{\color{primary}\bfseries O-Level Pure Maths} & {\color{primary}\bfseries A-Level Statistics} & {\color{primary}\bfseries A-Level Statistics} \\
+{\color{success}\bfseries 100\%} -- 15A, 12B, 6C (33) & {\color{success}\bfseries 100\%} -- 8A, 3B, 5C (18) & {\color{success}\bfseries 92.8\%} -- 3A, 6B (13) \\[0.02cm]
+{\color{primary}\bfseries O-Level Statistics} & {\color{primary}\bfseries A-Level Pure Maths} & {\color{primary}\bfseries A-Level Pure Maths} \\
+{\color{success}\bfseries 100\%} -- 18A, 7B (25) & {\color{success}\bfseries 94.6\%} -- 17A, 5B (37) & {\color{success}\bfseries 93.8\%} -- 8A, 12B (48) \\
+\hline
+\end{tabular}
+\normalsize
+{\color{graytext}\scriptsize\quad Also: 2021 A-Level Statistics 93.8\% (16) | 2022 O-Level Maths 69.1\% (140)}
+
+\vspace{0.1cm}
+\job{Mathematics Teacher}{Whitewaters High School, Matobo}{Mar 2019 -- Dec 2020}{Mixed School | 500+ Learners}
+\bd{Taught O-Level/A-Level Maths \& Non-Formal class; Teacher in Charge of athletics}
+\bd{Class teacher; Guidance counselling team; Significantly increased pass rates both years}
+\bd{Maintained 50\%+ A-Level pass rate; Implemented peer tutoring programs}
+
+\vspace{0.06cm}
+\job{Mathematics Teacher (Teaching Practice)}{Mtshabezi High (2 terms) \& Minda Girls High (1 term)}{2018}{Distinction}
+\bd{Developed classroom management skills; created engaging lessons for diverse learners}
+
+% ========== PAGE 2 ==========
+\newpage
+
+% ========== CERTIFICATIONS ==========
+\cvsection{Professional Certifications \& Appointments}
+
+{\color{primary}\bfseries\small National Appointment:}
+\bd{\textbf{National Advanced Level Statistics Examiner} -- Appointed by ZIMSEC to mark A-Level Statistics nationally}
+
+{\color{primary}\bfseries\small Sports Coaching:}
+\bd{World Rugby Training \& Education Certificate}
+\bd{Athletics Track \& Field Coaching Certificate}
+\bd{Tennis Coaching Certificate (Under 14)}
+\bd{Recognition Award for Training U14 Tennis Athletes}
+
+{\color{primary}\bfseries\small Leadership \& Other:}
+\bd{SRC Vice President Leadership Certificate (2018)}
+\bd{World Bible School Course Completion}
+
+% ========== SKILLS ==========
+\cvsection{Skills \& Competencies}
+
+{\color{primary}\bfseries\small Teaching \& Academic}\\[0.02cm]
+\begin{tabular}{@{}p{0.31\textwidth}@{}p{0.31\textwidth}@{}p{0.31\textwidth}@{}}
+\bd{Mathematics Instruction} & \bd{Statistics \& Analysis} & \bd{Mechanics Teaching} \\
+\bd{Curriculum Development} & \bd{Exam Preparation} & \bd{Classroom Management} \\
+\bd{Lesson Planning} & \bd{Student Assessment} & \bd{Differentiated Instruction} \\
+\end{tabular}
+
+{\color{primary}\bfseries\small Coaching \& Professional}\\[0.02cm]
+\begin{tabular}{@{}p{0.31\textwidth}@{}p{0.31\textwidth}@{}p{0.31\textwidth}@{}}
+\bd{Athletics (Track \& Field)} & \bd{Tennis Coaching} & \bd{Rugby Coaching} \\
+\bd{Student Mentorship} & \bd{Guidance \& Counselling} & \bd{Sports Organization} \\
+\bd{Communication} & \bd{Leadership \& Teamwork} & \bd{Problem Solving} \\
+\end{tabular}
+
+{\color{primary}\bfseries\small Languages}\\[0.02cm]
+\begin{tabular}{@{}p{0.31\textwidth}@{}p{0.31\textwidth}@{}p{0.31\textwidth}@{}}
+\bd{English (Fluent)} & \bd{Isindebele (Native)} & \bd{Shona (Fluent)} \\
+\end{tabular}
+
+% ========== EXTRACURRICULAR ==========
+\cvsection{Extracurricular Activities \& Coaching}
+
+{\color{primary}\bfseries\small Athletics -- Track \& Field}\\[0.02cm]
+\bd{Certified athletics coach; Teacher in Charge at Whitewaters; currently coaching at Thekwane}
+\bd{Training students for inter-school, district, and provincial competitions}
+
+{\color{primary}\bfseries\small Tennis \& Rugby}\\[0.02cm]
+\bd{Certified U14 tennis coach; Tennis coordinator at Thekwane; recognition for U14 development}
+\bd{World Rugby certified coach; contributing to school rugby programs}
+
+{\color{primary}\bfseries\small Student Development}\\[0.02cm]
+\bd{Class teacher with pastoral care; Guidance \& Counselling team member}
+\bd{Mentoring for academic and personal growth; career guidance support}
+
+% ========== PROFESSIONAL DEVELOPMENT ==========
+\cvsection{Professional Development}
+
+\bd{ZIMSEC examiner training workshops and standardization meetings}
+\bd{Methodist Church Schools mathematics teachers' conferences}
+\bd{Peer learning and best practice sharing within school clusters}
+\bd{World Teachers Day celebrations and professional networking}
+
+% ========== PAGE 3 content continues ====================
+
+% ========== TEACHING PHILOSOPHY ==========
+\cvsection{Teaching Philosophy}
+
+{\color{darktext}\small
+I believe every student can excel in mathematics with the right support. My philosophy centers on:
+}
+\bd{Student-Centered Learning -- creating inclusive environments for questions and learning from mistakes}
+\bd{Real-World Application -- connecting mathematical concepts to practical situations}
+\bd{Differentiated Instruction -- adapting methods to individual learning needs}
+\bd{Holistic Development -- nurturing academics alongside character through sports and mentorship}
+
+% ========== CAREER OBJECTIVES ==========
+\cvsection{Career Objectives}
+
+{\color{darktext}\small
+Seeking a challenging position in a reputable educational institution to:
+}
+\bd{Deliver excellent mathematics and statistics instruction that transforms student outcomes}
+\bd{Contribute to curriculum development and innovative teaching methodologies}
+\bd{Mentor students for academic excellence and holistic personal development}
+\bd{Support extracurricular programs through sports coaching}
+
+% ========== PERSONAL INFORMATION ==========
+\cvsection{Personal Information}
+
+\vspace{0.05cm}
+\begin{tabular}{@{}l@{\hspace{0.8cm}}l@{\hspace{0.8cm}}l@{\hspace{0.8cm}}l@{}}
+{\color{primary}\bfseries Date of Birth:} 7 Dec 1994 &
+{\color{primary}\bfseries Nationality:} Zimbabwean &
+{\color{primary}\bfseries Gender:} Male &
+{\color{primary}\bfseries Status:} Single
+\end{tabular}
+
+\vspace{0.06cm}
+{\color{primary}\bfseries Address:} 3166 Nketa 7, Bulawayo, Zimbabwe
+
+{\color{primary}\bfseries Phone:} +263 771 036 960 / +263 713 100 461\quad\quad
+{\color{primary}\bfseries Email:} jaymabuza9@gmail.com
+
+% ========== INTERESTS ==========
+\cvsection{Interests \& Hobbies}
+
+\vspace{0.03cm}
+\bd{Reading (Educational \& Motivational Literature)}
+\bd{Physical Fitness \& Gym}
+\bd{Athletics \& Sports}
+\bd{Mentoring Young People}
+\bd{Community Service}
+\bd{Continuous Learning}
+
+% ========== REFERENCES ==========
+\cvsection{References}
+
+\vspace{0.08cm}
+\colorbox{lightbg}{%
+\begin{minipage}{0.31\textwidth}
+\vspace{0.06cm}
+{\color{primary}\bfseries Dr. N. Mkwelie}\\[0.03cm]
+{\small National University of Science and Technology}\\[0.03cm]
+{\small\color{graytext}Dept. of Science, Mathematics \& Technology Education}\\[0.03cm]
+{\small\color{accent}\Telefon\ +263 773 223 659}
+\vspace{0.06cm}
+\end{minipage}%
+}
+\hfill
+\colorbox{lightbg}{%
+\begin{minipage}{0.31\textwidth}
+\vspace{0.06cm}
+{\color{primary}\bfseries Mr. I. Hindoga}\\[0.03cm]
+{\small Thekwane High School}\\[0.03cm]
+{\small\color{graytext}Head of Mathematics Department}\\[0.03cm]
+{\small\color{accent}\Telefon\ +263 776 420 532}
+\vspace{0.06cm}
+\end{minipage}%
+}
+\hfill
+\colorbox{lightbg}{%
+\begin{minipage}{0.31\textwidth}
+\vspace{0.06cm}
+{\color{primary}\bfseries Mr. B. Ncube}\\[0.03cm]
+{\small Whitewaters High School}\\[0.03cm]
+{\small\color{graytext}Head of Mathematics \& Science Department}\\[0.03cm]
+{\small\color{accent}\Telefon\ +263 775 458 285}
+\vspace{0.06cm}
+\end{minipage}%
+}
+
+\vspace{0.35cm}
+\begin{center}
+{\color{lightline}\rule{0.2\textwidth}{0.3pt}}\\[0.1cm]
+{\color{graytext}\small I hereby declare that all information provided above is true and accurate to the best of my knowledge.}
+\end{center}
+
+\end{document}
