@@ -1,0 +1,247 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+
+% Define elegant color palette
+\definecolor{primarycolor}{RGB}{25, 65, 110}      % Deep professional blue
+\definecolor{accentcolor}{RGB}{0, 120, 180}       % Bright accent blue
+\definecolor{darkgray}{RGB}{60, 60, 60}           % Dark gray for text
+\definecolor{lightgray}{RGB}{150, 150, 150}       % Light gray for subtle text
+\definecolor{sectionline}{RGB}{0, 120, 180}       % Section line color
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentcolor,
+    urlcolor=accentcolor,
+    pdftitle={Katleho Ndlovu - Professional CV},
+    pdfauthor={Katleho Ndlovu}
+}
+
+% Custom section formatting with colored line
+\titleformat{\section}
+  {\Large\bfseries\color{primarycolor}}
+  {}{0em}{}[{\color{sectionline}\titlerule[1.5pt]}]
+  
+\titleformat{\subsection}
+  {\large\bfseries\color{accentcolor}}
+  {}{0em}{}
+
+% Spacing adjustments
+\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{1ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 0.4ex minus 0.2ex}{0.8ex plus 0.2ex}
+
+% Custom commands
+\newcommand{\cventry}[6]{
+  \noindent{\large\textbf{\color{primarycolor}#1}} \hfill {\color{lightgray}\textit{#2}}\\
+  {\color{accentcolor}\textit{#3}} \hfill {\color{darkgray}#4}\\
+  {\color{darkgray}#5}
+  \ifx&#6&\else
+  \begin{itemize}[leftmargin=*,topsep=3pt,parsep=1pt,itemsep=3pt]
+    #6
+  \end{itemize}
+  \fi
+  \vspace{0.4cm}
+}
+
+\newcommand{\educationentry}[5]{
+  \noindent{\large\textbf{\color{primarycolor}#1}} \hfill {\color{lightgray}\textit{#2}}\\
+  {\color{accentcolor}\textit{#3}} \hfill {\color{darkgray}#4}\\
+  {\color{darkgray}#5}
+  \vspace{0.35cm}
+}
+
+\setlist[itemize]{leftmargin=*,topsep=3pt,parsep=1pt,itemsep=3pt}
+
+\begin{document}
+
+% Header with elegant design
+\begin{center}
+  \begin{tikzpicture}
+    \node[inner sep=0pt] at (0,0) {
+      \begin{tabular}{c}
+        {\fontsize{28}{34}\selectfont\bfseries\color{primarycolor} KATLEHO NDLOVU}\\[0.2cm]
+        {\large\color{darkgray} Financial Management Professional}
+      \end{tabular}
+    };
+  \end{tikzpicture}\\[0.4cm]
+  
+  {\color{darkgray}
+  717 Hazel Dale, Noordgesig, Johannesburg 1804}\\[0.15cm]
+  {\color{accentcolor}
+  \textbf{Mobile:} 069 334 1034 \quad $\bullet$ \quad \textbf{Email:} katlehon551@gmail.com}
+\end{center}
+
+\vspace{0.3cm}
+
+% Professional Summary with colored box
+\section*{PROFESSIONAL SUMMARY}
+{\color{darkgray}
+Dynamic and detail-oriented financial administration professional with proven expertise in financial record-keeping, data management, and operational coordination. Currently completing 18-month Work Integrated Learning towards Diploma in Financial Management, having successfully achieved N4, N5, and N6 qualifications. Proficient in Sage Pastel and Microsoft Office Suite with demonstrated excellence in financial reconciliation, administrative support, and client relationship management. Combines strong analytical capabilities with exceptional organizational and interpersonal skills to deliver outstanding results in fast-paced business environments.}
+
+\vspace{0.3cm}
+
+% Education Section
+\section*{EDUCATION \& PROFESSIONAL QUALIFICATIONS}
+
+\educationentry{Work Integrated Learning (18 months)}{2024--Present}{Diploma in Financial Management -- Gauteng City College}{Johannesburg}{
+\textbf{Current Status:} In Progress\\
+$\bullet$ Practical workplace experience integrating financial management theory with real-world applications\\
+$\bullet$ Advanced competencies in financial accounting, analysis, budgeting, and reporting systems\\
+$\bullet$ Professional development in industry-standard financial software and business procedures\\
+$\bullet$ Application of management accounting, cost analysis, and strategic financial planning principles
+}
+
+\educationentry{National Certificate N6 -- Financial Management}{2024}{Gauteng City College}{Johannesburg}{
+\textbf{Status:} \textcolor{accentcolor}{\textbf{Completed}}\\
+$\bullet$ Advanced financial accounting, management accounting, and comprehensive cost analysis\\
+$\bullet$ Financial reporting standards, budgeting systems, and regulatory compliance frameworks\\
+$\bullet$ Business management principles, organizational strategy, and taxation fundamentals\\
+$\bullet$ Quantitative analysis techniques and financial decision-making methodologies
+}
+
+\educationentry{National Certificate N5 -- Financial Management}{2023}{Gauteng City College}{Johannesburg}{
+\textbf{Status:} \textcolor{accentcolor}{\textbf{Completed}}\\
+$\bullet$ Core financial systems, business administration, and management accounting principles\\
+$\bullet$ Financial statement analysis, business economics, and quantitative techniques\\
+$\bullet$ Foundation in computerized accounting and financial information systems
+}
+
+\educationentry{National Certificate N4 -- Financial Management}{2023}{Gauteng City College}{Johannesburg}{
+\textbf{Status:} \textcolor{accentcolor}{\textbf{Completed}}\\
+$\bullet$ Financial management fundamentals, bookkeeping principles, and accounting basics\\
+$\bullet$ Business communication, office administration, and computer applications in business\\
+$\bullet$ Introduction to financial record-keeping and business mathematics
+}
+
+\educationentry{National Senior Certificate (Matric)}{2020}{Noordgesig Secondary School}{Johannesburg}{
+\textbf{Status:} \textcolor{accentcolor}{\textbf{Completed}}
+}
+
+\vspace{0.3cm}
+
+% Professional Experience
+\section*{PROFESSIONAL EXPERIENCE}
+
+\cventry{Personal Assistant}{August 2023 -- Present}{International Schooling}{Remote Position}{}{
+  \item Orchestrate high-volume email management with sophisticated prioritization protocols and escalation procedures
+  \item Coordinate comprehensive scheduling systems for student attendance, academic appointments, and class bookings
+  \item Implement strategic reminder and notification systems, achieving 95\%+ class participation rates
+  \item Design and maintain advanced digital filing and records management infrastructure for academic documentation
+  \item Provide executive-level administrative support to teaching professionals, optimizing operational efficiency
+  \item Demonstrate exceptional multi-tasking abilities while managing concurrent priorities across multiple time zones
+  \item Leverage educational technology platforms for seamless communication, coordination, and workflow optimization
+}
+
+\cventry{Financial Administrator \& Receptionist}{August 2022 -- August 2023}{Sweetface Thai Massage and Beauty}{Johannesburg}{}{
+  \item Maintained precision financial records with zero-error data entry across multiple account systems
+  \item Processed daily financial transactions including sales, payments, refunds, and performed comprehensive reconciliations
+  \item Managed accounts receivable and payable operations with strategic focus on cash flow optimization
+  \item Generated detailed financial reports and analysis for management review and strategic decision-making
+  \item Implemented efficient digital filing systems for financial documentation, invoices, and compliance records
+  \item Delivered exceptional client service while maintaining comprehensive preference profiles and service histories
+  \item Consistently exceeded sales targets through consultative approach and personalized client engagement strategies
+  \item Developed advanced proficiency in financial software, database management, and spreadsheet analysis
+}
+
+\cventry{Shop Assistant}{January 2022 -- July 2022}{Harold's Sons}{Johannesburg}{}{
+  \item Executed persuasive product demonstrations and consultations, driving significant customer conversion improvements
+  \item Maintained superior workplace organization, inventory management, and visual merchandising standards
+  \item Ensured complete compliance with health, safety, and operational regulations through systematic inspections
+  \item Performed preventive maintenance protocols and comprehensive cleaning schedules
+  \item Cultivated strong customer service excellence, sales consultation expertise, and point-of-sale system proficiency
+  \item Contributed to stock control optimization, receiving procedures, and merchandise display strategies
+}
+
+\vspace{0.3cm}
+
+% Core Competencies
+\section*{CORE COMPETENCIES}
+
+\subsection*{Technical \& Financial Expertise}
+{\color{darkgray}
+\textbf{Financial Software \& Systems:}\\
+Sage Pastel (Accounting \& Payroll Modules) $\bullet$ Microsoft Excel (Advanced -- VLOOKUPs, PivotTables, Financial Modeling, Data Analysis) $\bullet$ Microsoft Office Suite (Word, Outlook, PowerPoint) $\bullet$ Email Management Platforms $\bullet$ Digital Filing Solutions $\bullet$ Database Management Systems $\bullet$ Scheduling \& Calendar Software
+
+\vspace{0.2cm}
+
+\textbf{Financial Administration \& Accounting:}\\
+Financial Record Management $\bullet$ Accounts Receivable/Payable Processing $\bullet$ Bank Reconciliation $\bullet$ Transaction Processing \& Verification $\bullet$ Financial Reporting \& Analysis $\bullet$ Budgeting Support $\bullet$ Invoice Management $\bullet$ Cash Flow Monitoring $\bullet$ Data Entry \& Quality Assurance $\bullet$ Compliance Documentation
+
+\vspace{0.2cm}
+
+\textbf{Administrative Operations:}\\
+Document Management $\bullet$ Office Coordination $\bullet$ Appointment Scheduling $\bullet$ Records Maintenance $\bullet$ Calendar Management $\bullet$ Meeting Coordination $\bullet$ Workflow Optimization
+}
+
+\subsection*{Professional Skills \& Attributes}
+{\color{darkgray}
+\textbf{Analytical \& Problem-Solving:}\\
+Critical Thinking $\bullet$ Data Analysis $\bullet$ Financial Analysis $\bullet$ Cost-Benefit Assessment $\bullet$ Process Optimization $\bullet$ Strategic Planning Support $\bullet$ Decision Support
+
+\vspace{0.2cm}
+
+\textbf{Communication \& Interpersonal:}\\
+Professional Written \& Verbal Communication $\bullet$ Client Relations Management $\bullet$ Active Listening $\bullet$ Presentation Skills $\bullet$ Cross-Cultural Communication $\bullet$ Stakeholder Engagement $\bullet$ Team Collaboration
+
+\vspace{0.2cm}
+
+\textbf{Organizational \& Leadership:}\\
+Time Management $\bullet$ Multi-tasking Excellence $\bullet$ Attention to Detail $\bullet$ Priority Management $\bullet$ Deadline Management $\bullet$ Project Coordination $\bullet$ Process Improvement $\bullet$ Initiative \& Self-Direction
+
+\vspace{0.2cm}
+
+\textbf{Customer Service Excellence:}\\
+Client Relationship Management $\bullet$ Conflict Resolution $\bullet$ Service Quality Optimization $\bullet$ Needs Assessment $\bullet$ Customer Satisfaction Enhancement
+}
+
+\vspace{0.3cm}
+
+% Languages
+\section*{LANGUAGE PROFICIENCY}
+{\color{darkgray}
+\textbf{\color{primarycolor}English:} Fluent -- Professional working proficiency (written and verbal communication)\\[0.1cm]
+\textbf{\color{primarycolor}Afrikaans:} Proficient -- Strong conversational and written communication capabilities\\[0.1cm]
+\textbf{\color{primarycolor}IsiZulu:} Proficient -- Native-level comprehension and communication fluency
+}
+
+\vspace{0.3cm}
+
+\clearpage
+
+% Professional References
+\section*{PROFESSIONAL REFERENCES}
+
+\noindent{\large\textbf{\color{primarycolor}Yolanda Dube}}\\
+{\color{accentcolor}\textit{PhD Candidate in Cosmology}}\\
+{\color{darkgray}International Schooling (Remote Position)}\\
+{\color{darkgray}University of the Western Cape}\\
+{\color{darkgray}\textit{Relationship:} Direct Supervisor -- Current Position}\\
+{\color{darkgray}Email: yolanda.dube@internationalschooling.org}\\
+{\color{darkgray}Phone: +27 84 759 7313}
+
+\vspace{0.4cm}
+
+\noindent{\large\textbf{\color{primarycolor}Ingrid Van Der Merwe}}\\
+{\color{accentcolor}\textit{Store Manager}}\\
+{\color{darkgray}Harold's Sons}\\
+{\color{darkgray}\textit{Relationship:} Direct Supervisor -- Shop Assistant Role}\\
+{\color{darkgray}Email: Ingridcvandermerwe@gmail.com}\\
+{\color{darkgray}Phone: +27 84 649 6316}
+
+\vspace{0.5cm}
+
+\begin{center}
+{\color{lightgray}\textit{Additional professional references available upon request}}
+\end{center}
+
+\end{document}
