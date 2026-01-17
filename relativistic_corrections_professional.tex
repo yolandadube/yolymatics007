@@ -1,0 +1,547 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\definecolor{myblue}{RGB}{0,0,255}
+
+\title{\textbf{Relativistic and Wide-Angle Corrections to the Galaxy Power Spectrum} \\
+\vspace{0.3cm}
+\large Notes on the Full Observed Matter Power Spectrum}
+\author{Yolanda Dube}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+These notes provide a comprehensive technical reference for relativistic and wide-angle corrections to the galaxy power spectrum. The analysis follows the notation and framework established by Addis et al. (2025) and incorporates recent developments in the treatment of general relativistic effects and wide-separation corrections in large-scale structure observations. All analytic expressions are derived for the matter power spectrum with $f_{\rm NL} = 0$.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction and Physical Motivation}
+
+\subsection{The Standard Treatment and Its Limitations}
+
+The standard analysis of galaxy clustering relies on the Kaiser formula [14], which describes redshift-space distortions in the Newtonian approximation under the plane-parallel assumption. This framework has proven highly successful for analyzing small and intermediate-scale clustering. However, several fundamental assumptions underlying this treatment break down when considering observations on ultra-large cosmological scales.
+
+The plane-parallel approximation assumes that all galaxy pairs share a common line of sight, which becomes increasingly invalid as the angular separation between galaxies grows. The Newtonian treatment neglects general relativistic effects that arise from observing structure on our past light cone. Furthermore, the standard framework implicitly assumes that correlations are measured at equal cosmic time, ignoring the fact that galaxies at different redshifts correspond to different epochs in cosmic history.
+
+\subsection{Why Relativistic Corrections Matter for Cosmology}
+
+Next-generation surveys such as Euclid, MegaMapper, DESI, and the Square Kilometre Array will probe scales approaching the cosmic horizon, where $k \sim \mathcal{H}$ (with $\mathcal{H} = aH$ being the conformal Hubble parameter). On these scales, the standard approximations fail quantitatively and can introduce severe systematic biases into cosmological parameter inference.
+
+Recent analyses by Addis et al. [1] and Guedezounme et al. [2] have demonstrated that ignoring these corrections leads to biases in measurements of primordial non-Gaussianity ranging from $\sim 3\sigma$ for Euclid-like surveys to $\sim 20\sigma$ for high-redshift surveys like MegaMapper. These biases arise because relativistic effects and scale-dependent bias induced by primordial non-Gaussianity both scale similarly with wavenumber $k$, creating a degeneracy that must be carefully disentangled.
+
+Beyond primordial non-Gaussianity, these corrections are essential for precision cosmology more broadly. Tests of General Relativity on cosmological scales, measurements of the growth rate of structure, determinations of cosmological distances, and detection of features in the primordial power spectrum all require accurate modeling of the observed galaxy distribution. The cosmic turnover scale, which represents a fundamental feature in the matter power spectrum at $k \sim 0.01 \, h\,{\rm Mpc}^{-1}$, lies precisely in the regime where these corrections become significant.
+
+\subsection{Physical Origin of the Corrections}
+
+The observed galaxy number density contrast $\Delta(\mathbf{x}, \hat{\mathbf{n}}, z)$ differs from the underlying real-space matter density contrast $\delta(\mathbf{x}, \tau)$ due to projection effects that occur as photons travel from distant galaxies to the observer. These effects can be organized into three categories based on their physical origin and mathematical structure.
+
+Local (non-integrated) effects arise from the instantaneous state of the gravitational field at the source location. These include the standard density and velocity perturbations described by the Kaiser formula, as well as relativistic corrections such as the Doppler effect and gravitational redshift. The Doppler contribution, which depends on the peculiar velocity gradient along the line of sight, is typically the dominant relativistic correction. Gravitational redshift, known as the Sachs-Wolfe effect in this context, contributes at second order in $\mathcal{H}/k$.
+
+Integrated (line-of-sight) effects accumulate as photons propagate through the perturbed spacetime. Gravitational lensing convergence alters the observed angular positions and magnifications of galaxies, thereby changing the inferred number density. The lensing effect scales as the integral of the gravitational potential weighted by geometric factors along the line of sight. The Shapiro time delay arises because photons traveling through gravitational potentials experience time dilations that alter the inferred redshift. The integrated Sachs-Wolfe effect contributes when photons traverse evolving gravitational potentials, gaining or losing energy in the process.
+
+Wide-separation effects emerge from the breakdown of translational invariance when correlating galaxies separated by large angles or redshifts. The Yamamoto estimator commonly used to measure power spectrum multipoles assumes that the correlation function depends only on the separation between galaxy pairs, not their absolute positions. This assumption requires local translational invariance, which fails when galaxies have significantly different lines of sight (wide-angle corrections) or are observed at substantially different cosmic times (radial evolution corrections).
+
+\section{Theoretical Framework in General Relativity}
+
+\subsection{Metric and Gauge Choice}
+
+The analysis is performed in the synchronous-comoving gauge, where the perturbed Friedmann-Robertson-Walker metric takes the form
+\begin{equation}
+ds^2 = a^2(\tau)\left[-d\tau^2 + \left(\delta_{ij} + h_{ij}\right)dx^i dx^j\right].
+\end{equation}
+Here $a(\tau)$ is the scale factor as a function of conformal time $\tau$, and $h_{ij}$ represents the metric perturbations. This gauge choice simplifies the interpretation of physical effects while maintaining manifest general covariance.
+
+\subsection{Galaxy Number Counts}
+
+The observed galaxy overdensity at position $\mathbf{x}$, redshift $z$, and observed direction $\hat{\mathbf{n}}$ decomposes into standard and integrated contributions [5,6,7]:
+\begin{equation}
+\boxed{\Delta(\mathbf{x}, \hat{\mathbf{n}}, z) = \Delta^{\rm S}(\mathbf{x}, \hat{\mathbf{n}}, z) + \Delta^{\rm I}(\mathbf{x}, \hat{\mathbf{n}}, z)}.
+\end{equation}
+
+The standard contribution contains local effects that can be written as convolutions of transfer kernels with the matter density contrast:
+\begin{equation}
+\Delta^{\rm S} = \mathcal{K}^{\rm S}(\mathbf{q}, \mathbf{x})\delta(\mathbf{x}, \tau) + \mathcal{K}^{\rm NI}(\mathbf{q}, \mathbf{x})\delta(\mathbf{x}, \tau),
+\end{equation}
+where $\mathbf{q} = \mathbf{k}/k$ denotes the Fourier wavevector direction, $\mathcal{K}^{\rm S}$ is the Kaiser kernel describing standard clustering and redshift-space distortions, and $\mathcal{K}^{\rm NI}$ is the non-integrated relativistic kernel.
+
+\subsection{The Kaiser Kernel}
+
+The Kaiser kernel captures the combined effect of galaxy bias and linear redshift-space distortions:
+\begin{equation}
+\boxed{\mathcal{K}^{\rm S}(\mathbf{q}, \mathbf{x}) = b_1 + f\mu^2},
+\end{equation}
+where $b_1$ is the linear galaxy bias parameter, $f = d\ln D/d\ln a$ is the linear growth rate with $D$ being the linear growth factor, and $\mu = \hat{\mathbf{n}} \cdot \mathbf{q}$ is the cosine of the angle between the line of sight and the Fourier wavevector. The $\mu^2$ dependence arises from coherent infall velocities and produces the characteristic anisotropic clustering pattern in redshift space.
+
+\subsection{Non-Integrated Relativistic Kernel}
+
+The non-integrated relativistic kernel incorporates local general relativistic corrections [1,5]:
+\begin{equation}
+\boxed{\mathcal{K}^{\rm NI}(\mathbf{q}, \mathbf{x}) = \alpha\left(\frac{\mathcal{H}}{k}\right)\mu - \left(b_{\rm e} + \frac{2-5s}{r\mathcal{H}}\right)\left(\frac{\mathcal{H}}{k}\right)^2}.
+\end{equation}
+
+The first term represents the relativistic Doppler contribution, with amplitude
+\begin{equation}
+\boxed{\alpha = b_{\rm e} + \frac{2-5s}{r\mathcal{H}} - f}.
+\end{equation}
+
+The parameters entering this expression have clear physical interpretations. The evolution bias is defined as
+\begin{equation}
+b_{\rm e} = -\frac{\partial \ln \bar{n}_g}{\partial \ln L}\bigg|_{\rm cut},
+\end{equation}
+measuring how the comoving number density of galaxies above a given luminosity threshold evolves with cosmic time. The parameter $s = r(3\bar{n}_g)^{-1}\partial \bar{n}_g/\partial r$ characterizes the radial dependence of the number density. The magnification bias is related to the evolution bias through
+\begin{equation}
+Q = \frac{2}{5}(b_{\rm e} - 1),
+\end{equation}
+quantifying how the observed number density changes when the flux limit is modified by gravitational lensing magnification. The comoving distance to redshift $z$ is denoted by $r = \chi(z)$.
+
+The second term in $\mathcal{K}^{\rm NI}$ scales as $(\mathcal{H}/k)^2$ and represents higher-order local gravitational effects. While formally subdominant to the Doppler term, this contribution becomes relevant on the largest observable scales where $k \sim \mathcal{H}$.
+
+\subsection{Integrated Relativistic Contributions}
+
+The integrated contribution arises from line-of-sight projection effects [1,2]:
+\begin{equation}
+\boxed{\Delta^{\rm I}(\mathbf{x}, \hat{\mathbf{n}}, z) = \mathcal{K}^{\rm L}(\mathbf{q}, \mathbf{x})\kappa + \mathcal{K}^{\rm TD}(\mathbf{q}, \mathbf{x})V_{\rm TD} + \mathcal{K}^{\rm ISW}(\mathbf{q}, \mathbf{x})\Phi_{\rm ISW}}.
+\end{equation}
+
+The lensing convergence kernel is
+\begin{equation}
+\boxed{\mathcal{K}^{\rm L}(\mathbf{q}, \mathbf{x}) = -2Q\left(\frac{\mathcal{H}}{k}\right)^2},
+\end{equation}
+with the convergence field given by the line-of-sight integral
+\begin{equation}
+\kappa(\hat{\mathbf{n}}, z) = -\int_0^r dr' \frac{r - r'}{r r'}\nabla_{\perp}^2\Phi(\mathbf{x}'),
+\end{equation}
+where $\nabla_{\perp}^2$ denotes the Laplacian transverse to the line of sight and $\Phi$ is the Newtonian gravitational potential.
+
+The time delay kernel is
+\begin{equation}
+\boxed{\mathcal{K}^{\rm TD}(\mathbf{q}, \mathbf{x}) = (2 - 5s)\left(\frac{\mathcal{H}}{k}\right)^2},
+\end{equation}
+with the time delay field
+\begin{equation}
+V_{\rm TD}(\hat{\mathbf{n}}, z) = \int_0^r dr' \left(\frac{1}{r'} - \frac{1}{r}\right)\frac{\partial \Phi}{\partial \tau}(\mathbf{x}').
+\end{equation}
+
+The integrated Sachs-Wolfe kernel has the same mathematical form as the time delay kernel:
+\begin{equation}
+\boxed{\mathcal{K}^{\rm ISW}(\mathbf{q}, \mathbf{x}) = (2 - 5s)\left(\frac{\mathcal{H}}{k}\right)^2},
+\end{equation}
+with
+\begin{equation}
+\Phi_{\rm ISW}(\hat{\mathbf{n}}, z) = \int_0^r dr' \frac{\partial \Phi}{\partial \tau}(\mathbf{x}').
+\end{equation}
+
+In $\Lambda$CDM cosmology with General Relativity, both the time delay and integrated Sachs-Wolfe effects depend on the time derivative of the gravitational potential and share the same kernel, allowing them to be combined in practical calculations.
+
+\section{The Observed Galaxy Power Spectrum}
+
+\subsection{Definition and Multipole Expansion}
+
+The observed galaxy power spectrum in Fourier space is defined through the two-point correlation function:
+\begin{equation}
+\langle \tilde{\Delta}(\mathbf{k}_1, z_1)\tilde{\Delta}^*(\mathbf{k}_2, z_2)\rangle = (2\pi)^3\delta_{\rm D}(\mathbf{k}_1 - \mathbf{k}_2)P_{\rm obs}(\mathbf{k}_1, z_1, z_2).
+\end{equation}
+
+For a single redshift bin, the power spectrum is typically analyzed through its multipole expansion with respect to the angle between the wavevector and the line of sight:
+\begin{equation}
+P_{\ell}(k, z) = \frac{2\ell + 1}{2}\int_{-1}^{1}d\mu \, P_{\rm obs}(k, \mu, z)\mathcal{L}_{\ell}(\mu),
+\end{equation}
+where $\mathcal{L}_{\ell}(\mu)$ are Legendre polynomials and $\mu = \hat{\mathbf{n}} \cdot \hat{\mathbf{k}}$. The monopole ($\ell = 0$) and quadrupole ($\ell = 2$) contain the majority of cosmological information and are the primary focus of most analyses.
+
+\subsection{Plane-Parallel Approximation}
+
+In the plane-parallel approximation with all relativistic and wide-separation corrections neglected, the power spectrum takes the form
+\begin{equation}
+P_{\rm PP}(k, \mu, z) = \left|\mathcal{K}^{\rm S}(k, \mu) + \mathcal{K}^{\rm NI}(k, \mu)\right|^2 P_{\rm m}(k, z),
+\end{equation}
+where $P_{\rm m}(k, z)$ denotes the linear matter power spectrum. The plane-parallel monopole is
+\begin{equation}
+P_0^{\rm PP}(k, z) = \left(b_1 + \frac{f}{3} + \frac{\alpha}{3}\frac{\mathcal{H}}{k}\right)^2 P_{\rm m}(k, z),
+\end{equation}
+while the quadrupole is
+\begin{equation}
+P_2^{\rm PP}(k, z) = \left(\frac{4f}{3}(b_1 + f) + \frac{4\alpha f}{5}\frac{\mathcal{H}}{k}\right)P_{\rm m}(k, z).
+\end{equation}
+
+These expressions provide the leading-order result but omit crucial corrections that become significant on large scales. The full treatment requires inclusion of integrated effects and wide-separation corrections.
+
+\section{Wide-Separation Effects}
+
+\subsection{Breaking of Translational Invariance}
+
+The Yamamoto estimator [13] commonly employed in survey analyses assumes that the two-point correlation function depends only on the separation vector between galaxy pairs, independent of their absolute positions. This translational invariance holds locally but breaks down when galaxies are separated by large angles or significant redshift intervals.
+
+Wide-separation effects can be decomposed into two categories. Wide-angle corrections arise from the angular separation between galaxies when their lines of sight are no longer parallel. The assumption that $\hat{\mathbf{n}}_1 \parallel \hat{\mathbf{n}}_2$ fails when the opening angle becomes comparable to unity. Radial evolution corrections account for the changing statistical properties of the galaxy distribution with redshift. Parameters such as the bias, growth rate, and number density evolve with cosmic time, violating the assumption that galaxies at different redshifts can be treated as equivalent statistical realizations.
+
+\subsection{Perturbative Treatment}
+
+Following the framework of Addis et al. [1], Beutler \& Di Dio [11], and Noorikuhani \& Scoccimarro [12], wide-separation effects can be incorporated perturbatively as an expansion in the parameter $\mathcal{H}/(kr)$:
+\begin{equation}
+\boxed{P_{\rm obs}(\mathbf{k}, z_1, z_2) = P^{(0)}(k) + P^{(1)}(k, z_1, z_2) + P^{(2)}(k, z_1, z_2) + \cdots},
+\end{equation}
+where $P^{(0)}$ represents the plane-parallel result, $P^{(1)}$ contains first-order wide-separation corrections of order $\mathcal{H}/(kr)$, and $P^{(2)}$ includes second-order corrections of order $[\mathcal{H}/(kr)]^2$.
+
+\subsection{Line-of-Sight Prescription}
+
+For two galaxies at positions $\mathbf{x}_a$ and $\mathbf{x}_b$, a generalized line of sight can be defined through a parameter $t \in [0,1]$:
+\begin{equation}
+\hat{\mathbf{n}}_{ab}(t) = \frac{t\mathbf{x}_a + (1-t)\mathbf{x}_b}{|t\mathbf{x}_a + (1-t)\mathbf{x}_b|}.
+\end{equation}
+The choice $t = 0$ corresponds to the line of sight toward galaxy $b$, $t = 1$ corresponds to the line of sight toward galaxy $a$, and $t = 1/2$ defines the midpoint line of sight. The midpoint prescription is most commonly adopted and is used throughout this analysis unless otherwise stated.
+
+Different choices of line-of-sight prescription can significantly affect the detection significance of relativistic effects. Jolicoeur et al. [3] demonstrated that the signal-to-noise ratio for detecting relativistic wide-angle effects can vary from $\sim 5\sigma$ to $>15\sigma$ depending on this choice, emphasizing the importance of careful treatment in observational analyses.
+
+\section{Complete Monopole Expression}
+
+\subsection{Full Decomposition}
+
+The complete observed power spectrum monopole, including all standard, relativistic, and wide-separation contributions with $f_{\rm NL} = 0$, can be written as
+\begin{equation}
+\boxed{
+\begin{aligned}
+P_0(k, z) &= P_0^{\rm S \times S}(k, z) + P_0^{\rm S \times NI}(k, z) + P_0^{\rm NI \times NI}(k, z) \\
+&\quad + P_0^{\rm S \times L}(k, z) + P_0^{\rm S \times (ISW+TD)}(k, z) \\
+&\quad + P_0^{\rm NI \times L}(k, z) + P_0^{\rm NI \times (ISW+TD)}(k, z) \\
+&\quad + P_0^{\rm L \times L}(k, z) + P_0^{\rm (ISW+TD) \times (ISW+TD)}(k, z) \\
+&\quad + P_0^{\rm L \times (ISW+TD)}(k, z) \\
+&\quad + P_0^{\rm WA(1)}(k, z) + P_0^{\rm WA(2)}(k, z) \\
+&\quad + P_0^{\rm RE(1)}(k, z) + P_0^{\rm RE(2)}(k, z) + P_0^{\rm SN},
+\end{aligned}
+}
+\end{equation}
+where superscripts denote the physical origin of each contribution and subscripts indicate the multipole order.
+
+\subsection{Standard Auto-Correlation}
+
+The dominant contribution on all scales is the Kaiser auto-correlation:
+\begin{equation}
+\boxed{P_0^{\rm S \times S}(k, z) = \left(b_1 + \frac{f}{3}\right)^2 P_{\rm m}(k, z)}.
+\end{equation}
+This term represents the standard clustering signal combined with linear redshift-space distortions in the monopole.
+
+\subsection{Standard-Relativistic Cross Terms}
+
+The cross-correlation between the Kaiser term and the non-integrated relativistic Doppler contribution is
+\begin{equation}
+\boxed{P_0^{\rm S \times NI}(k, z) = \frac{2\alpha}{3}\left(b_1 + \frac{f}{3}\right)\left(\frac{\mathcal{H}}{k}\right)P_{\rm m}(k, z)}.
+\end{equation}
+This term scales as $\mathcal{H}/k$ and becomes increasingly important on large scales. For typical parameter values with $\alpha \sim 0.5$ and $k \sim 0.01 \, h\,{\rm Mpc}^{-1}$, this contribution reaches several percent of the Kaiser term.
+
+\subsection{Non-Integrated Relativistic Auto-Correlation}
+
+The relativistic auto-correlation contains both the Doppler self-correlation and local gravitational effects:
+\begin{equation}
+\boxed{
+\begin{aligned}
+P_0^{\rm NI \times NI}(k, z) &= \frac{\alpha^2}{3}\left(\frac{\mathcal{H}}{k}\right)^2P_{\rm m}(k, z) \\
+&\quad + \frac{1}{5}\left(b_{\rm e} + \frac{2-5s}{r\mathcal{H}}\right)^2\left(\frac{\mathcal{H}}{k}\right)^4P_{\rm m}(k, z)}.
+\end{aligned}
+\end{equation}
+The first term represents the Doppler self-correlation scaling as $(\mathcal{H}/k)^2$, while the second term captures local gravitational redshift effects scaling as $(\mathcal{H}/k)^4$.
+
+\subsection{Standard-Lensing Cross Term}
+
+The cross-correlation between the Kaiser term and lensing convergence is
+\begin{equation}
+\boxed{P_0^{\rm S \times L}(k, z) = -\frac{4Q}{5}\left(b_1 + \frac{f}{3}\right)\left(\frac{\mathcal{H}}{k}\right)^2 \mathcal{I}_{\rm lens}(k, z)},
+\end{equation}
+where the lensing integral is defined as
+\begin{equation}
+\mathcal{I}_{\rm lens}(k, z) = \int_0^r dr' W_{\rm lens}(r, r') P_{\rm m}(k, z'),
+\end{equation}
+with lensing window function
+\begin{equation}
+W_{\rm lens}(r, r') = \frac{r - r'}{rr'}.
+\end{equation}
+The negative sign in this expression reflects the fact that lensing convergence tends to suppress the observed power on large scales through geometric dilution effects.
+
+\subsection{Standard-ISW/TD Cross Term}
+
+The cross-correlation between standard clustering and the combined integrated Sachs-Wolfe plus time delay effects is
+\begin{equation}
+\boxed{P_0^{\rm S \times (ISW+TD)}(k, z) = \frac{2(2-5s)}{3}\left(b_1 + \frac{f}{3}\right)\left(\frac{\mathcal{H}}{k}\right)^2 \mathcal{I}_{\rm ISW}(k, z)},
+\end{equation}
+where
+\begin{equation}
+\mathcal{I}_{\rm ISW}(k, z) = \int_0^r dr' W_{\rm ISW}(r, r') \frac{\partial P_{\rm m}}{\partial \tau}(k, z').
+\end{equation}
+The time derivative of the matter power spectrum makes this contribution generally smaller than the lensing term in $\Lambda$CDM cosmology [2].
+
+\subsection{Non-Integrated-Lensing Cross Term}
+
+\begin{equation}
+\boxed{P_0^{\rm NI \times L}(k, z) = -\frac{4Q\alpha}{5}\left(\frac{\mathcal{H}}{k}\right)^3 \mathcal{I}_{\rm lens}(k, z)}.
+\end{equation}
+This contribution scales as $(\mathcal{H}/k)^3$ and represents a higher-order correction.
+
+\subsection{Non-Integrated-ISW/TD Cross Term}
+
+\begin{equation}
+\boxed{P_0^{\rm NI \times (ISW+TD)}(k, z) = \frac{2\alpha(2-5s)}{5}\left(\frac{\mathcal{H}}{k}\right)^3 \mathcal{I}_{\rm ISW}(k, z)}.
+\end{equation}
+
+\subsection{Integrated Auto-Correlations}
+
+The lensing auto-correlation is
+\begin{equation}
+\boxed{P_0^{\rm L \times L}(k, z) = \frac{4Q^2}{5}\left(\frac{\mathcal{H}}{k}\right)^4 \mathcal{I}_{\rm lens}^2(k, z)}.
+\end{equation}
+
+The ISW/TD auto-correlation is
+\begin{equation}
+\boxed{P_0^{\rm (ISW+TD) \times (ISW+TD)}(k, z) = \frac{(2-5s)^2}{5}\left(\frac{\mathcal{H}}{k}\right)^4 \mathcal{I}_{\rm ISW}^2(k, z)}.
+\end{equation}
+
+The lensing-ISW/TD cross-correlation is
+\begin{equation}
+\boxed{P_0^{\rm L \times (ISW+TD)}(k, z) = -\frac{4Q(2-5s)}{5}\left(\frac{\mathcal{H}}{k}\right)^4 \mathcal{I}_{\rm lens}(k, z)\mathcal{I}_{\rm ISW}(k, z)}.
+\end{equation}
+The negative sign indicates partial cancellation between lensing and ISW/TD effects.
+
+\subsection{Wide-Angle Corrections}
+
+For the midpoint line-of-sight prescription, the first-order wide-angle correction to the monopole is
+\begin{equation}
+\boxed{P_0^{\rm WA(1)}(k, \bar{z}) = -\frac{2f(b_1 + f)}{3r^2\mathcal{H}^2}P_{\rm m}(k, \bar{z})}.
+\end{equation}
+Second-order wide-angle corrections scale as $(r\mathcal{H})^{-4}$ and involve more complex angular integrals detailed in Addis et al. [1].
+
+\subsection{Radial Evolution Corrections}
+
+Radial evolution corrections account for the redshift dependence of bias parameters and growth rate. The first-order contribution has the schematic form
+\begin{equation}
+\boxed{P_0^{\rm RE(1)}(k, \bar{z}) \sim \frac{1}{r\mathcal{H}}\frac{\partial}{\partial \tau}\left[(b_1 + f)^2\right]P_{\rm m}(k, \bar{z})}.
+\end{equation}
+The complete expression involves derivatives of all bias parameters and can be found in Appendix C of Addis et al. [1].
+
+\subsection{Shot Noise}
+
+The final contribution is shot noise from the discrete sampling of the underlying continuous density field:
+\begin{equation}
+\boxed{P_0^{\rm SN} = \frac{1}{\bar{n}_g}},
+\end{equation}
+where $\bar{n}_g$ is the mean comoving number density of galaxies.
+
+\section{The Quadrupole}
+
+\subsection{Enhanced Sensitivity to Corrections}
+
+The power spectrum quadrupole exhibits significantly enhanced sensitivity to relativistic and wide-angle corrections compared to the monopole. This enhanced sensitivity arises because many relativistic effects couple preferentially to the angular dependence of the correlation function, producing larger relative corrections in higher multipoles. Consequently, the quadrupole provides a powerful probe of general relativistic effects and can substantially improve constraints on cosmological parameters when combined with monopole information [2].
+
+\subsection{Complete Quadrupole Expression}
+
+The full quadrupole including all corrections is
+\begin{equation}
+\boxed{
+\begin{aligned}
+P_2(k, z) &= P_2^{\rm S \times S}(k, z) + P_2^{\rm S \times NI}(k, z) + P_2^{\rm NI \times NI}(k, z) \\
+&\quad + P_2^{\rm S \times L}(k, z) + P_2^{\rm S \times (ISW+TD)}(k, z) \\
+&\quad + P_2^{\rm NI \times L}(k, z) + P_2^{\rm NI \times (ISW+TD)}(k, z) \\
+&\quad + P_2^{\rm I \times I}(k, z) + P_2^{\rm WA}(k, z) + P_2^{\rm RE}(k, z)},
+\end{aligned}
+\end{equation}
+where $P_2^{\rm I \times I}$ collectively denotes the integrated auto-correlations.
+
+\subsection{Principal Quadrupole Components}
+
+The standard Kaiser quadrupole is
+\begin{equation}
+\boxed{P_2^{\rm S \times S}(k, z) = \frac{4f}{3}\left(b_1 + f\right)P_{\rm m}(k, z)}.
+\end{equation}
+
+The Kaiser-Doppler cross term is
+\begin{equation}
+\boxed{P_2^{\rm S \times NI}(k, z) = \frac{4\alpha f}{5}\left(\frac{\mathcal{H}}{k}\right)P_{\rm m}(k, z)}.
+\end{equation}
+
+The Doppler auto-correlation in the quadrupole is
+\begin{equation}
+\boxed{P_2^{\rm NI \times NI}(k, z) = \frac{4\alpha^2}{15}\left(\frac{\mathcal{H}}{k}\right)^2 P_{\rm m}(k, z)}.
+\end{equation}
+
+The Kaiser-lensing cross term in the quadrupole has a different numerical coefficient than in the monopole:
+\begin{equation}
+\boxed{P_2^{\rm S \times L}(k, z) = -\frac{8Qf}{7}\left(\frac{\mathcal{H}}{k}\right)^2 \mathcal{I}_{\rm lens}(k, z)}.
+\end{equation}
+
+Similarly, the Kaiser-ISW/TD quadrupole cross term is
+\begin{equation}
+\boxed{P_2^{\rm S \times (ISW+TD)}(k, z) = \frac{4f(2-5s)}{7}\left(\frac{\mathcal{H}}{k}\right)^2 \mathcal{I}_{\rm ISW}(k, z)}.
+\end{equation}
+
+\section{Hierarchies and Scaling}
+
+\subsection{Scale-Dependent Importance}
+
+The relative importance of different contributions varies systematically with wavenumber. On small scales where $k \gg \mathcal{H}$, the Kaiser term dominates completely and all corrections are negligible. At intermediate scales $0.01 \lesssim k/(h\,{\rm Mpc}^{-1}) \lesssim 0.1$, the Doppler contribution becomes measurable and wide-angle corrections begin to appear. On large scales $k \lesssim 0.01 \, h\,{\rm Mpc}^{-1}$, all corrections become significant with amplitudes reaching ten percent or more. At ultra-large scales approaching $k \sim \mathcal{H}$, the corrections are of order unity and the standard treatment completely breaks down.
+
+\subsection{Redshift Dependence}
+
+The importance of different effects also exhibits strong redshift dependence. At low redshift $z < 0.5$, wide-angle corrections dominate over integrated effects, the integrated Sachs-Wolfe and time delay contributions are highly subdominant to lensing, and the Doppler term provides the leading relativistic correction. At intermediate redshift $0.5 < z < 2$, lensing convergence becomes increasingly important, all effects are comparable in magnitude, and comprehensive treatment of all corrections becomes necessary for unbiased cosmological inference. At high redshift $z > 2$, lensing convergence can modify the power spectrum by thirty percent or more [8], integrated effects dominate over local relativistic corrections, and accurate modeling requires the full machinery developed here.
+
+\subsection{Cancellations Between Contributions}
+
+An important feature discovered in recent analyses [1,2] is the partial cancellation between non-integrated and integrated corrections. The physical origin of this cancellation can be understood as follows. The Doppler term tends to enhance power on large scales because it adds coherently with the Kaiser term when $\alpha > 0$. Conversely, lensing convergence tends to suppress observed power through geometric dilution, as evidenced by the negative sign in the lensing kernel. For certain combinations of bias parameters, these effects partially cancel when computing the full power spectrum.
+
+The degree of cancellation is survey-dependent. For SKAO2 specifications, Guedezounme et al. [2] found that non-integrated corrections alone produce a bias of approximately $0.5\sigma$ in measurements of $f_{\rm NL}$, but when both non-integrated and integrated corrections are included, the net bias is nearly zero due to cancellation. For MegaMapper, the cancellation is less complete and a residual bias of approximately $0.6\sigma$ remains even after including all corrections.
+
+\section{Multi-Tracer Techniques}
+
+The bright-faint split approach [9,10] exploits the fact that different galaxy samples have different values of the relativistic amplitude $\alpha$, magnification bias $Q$, and evolution bias $b_{\rm e}$. By dividing a single galaxy sample according to luminosity, two independent tracers are obtained with distinct bias parameters. This enables several powerful applications in cosmological analysis.
+
+Cross-correlating bright and faint subsamples suppresses cosmic variance on ultra-large scales while preserving the signal from relativistic effects. The relativistic amplitude $\alpha$ can have opposite signs for bright versus faint samples, making the cross-power spectrum particularly sensitive to general relativistic corrections. Measurements of odd multipoles in the cross-power spectrum directly probe relativistic effects because they vanish in the Newtonian limit. For primordial non-Gaussianity measurements, the multi-tracer approach provides improved constraints by exploiting the differential response of different tracers to the scale-dependent bias.
+
+Addis et al. [1] demonstrated that incorporating a bright-faint split analysis improves constraints on $f_{\rm NL}$ by fifteen to twenty percent compared to single-tracer analyses, even after accounting for the reduced number of galaxies in each subsample. This improvement comes from the enhanced constraining power on relativistic effects combined with the ability to break degeneracies between different physical contributions.
+
+\section{Consolidated Monopole Formula}
+
+For reference, the complete monopole with all corrections and $f_{\rm NL} = 0$ can be written in consolidated form as
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+P_0(k, z) &= \underbrace{\left(b_1 + \frac{f}{3}\right)^2 P_{\rm m}}_{\text{Kaiser}} + \underbrace{\frac{2\alpha}{3}\left(b_1 + \frac{f}{3}\right)\frac{\mathcal{H}}{k}P_{\rm m}}_{\text{S} \times \text{Doppler}} \\
+&+ \underbrace{\frac{\alpha^2}{3}\left(\frac{\mathcal{H}}{k}\right)^2P_{\rm m}}_{\text{Doppler}^2} + \underbrace{\frac{1}{5}\left(b_{\rm e} + \frac{2-5s}{r\mathcal{H}}\right)^2\left(\frac{\mathcal{H}}{k}\right)^4P_{\rm m}}_{\text{Local GR}} \\
+&\underbrace{- \frac{4Q}{5}\left(b_1 + \frac{f}{3}\right)\left(\frac{\mathcal{H}}{k}\right)^2 \mathcal{I}_{\rm L}}_{\text{S} \times \text{Lensing}} + \underbrace{\frac{2(2-5s)}{3}\left(b_1 + \frac{f}{3}\right)\left(\frac{\mathcal{H}}{k}\right)^2 \mathcal{I}_{\rm ISW}}_{\text{S} \times \text{ISW+TD}} \\
+&\underbrace{- \frac{4Q\alpha}{5}\left(\frac{\mathcal{H}}{k}\right)^3 \mathcal{I}_{\rm L}}_{\text{NI} \times \text{L}} + \underbrace{\frac{2\alpha(2-5s)}{5}\left(\frac{\mathcal{H}}{k}\right)^3 \mathcal{I}_{\rm ISW}}_{\text{NI} \times \text{ISW+TD}} \\
+&+ \underbrace{\frac{4Q^2}{5}\left(\frac{\mathcal{H}}{k}\right)^4 \mathcal{I}_{\rm L}^2}_{\text{L}^2} + \underbrace{\frac{(2-5s)^2}{5}\left(\frac{\mathcal{H}}{k}\right)^4 \mathcal{I}_{\rm ISW}^2}_{\text{ISW}^2} \\
+&\underbrace{- \frac{4Q(2-5s)}{5}\left(\frac{\mathcal{H}}{k}\right)^4 \mathcal{I}_{\rm L}\mathcal{I}_{\rm ISW}}_{\text{L} \times \text{ISW}} \\
+&+ \underbrace{P_0^{\rm WA(1)} + P_0^{\rm WA(2)}}_{\text{Wide-angle}} + \underbrace{P_0^{\rm RE(1)} + P_0^{\rm RE(2)}}_{\text{Radial evolution}} + \underbrace{\frac{1}{\bar{n}_g}}_{\text{Shot noise}},
+\end{aligned}
+}
+\end{equation}
+
+where the fundamental parameters are
+\begin{align}
+\alpha &= b_{\rm e} + \frac{2-5s}{r\mathcal{H}} - f, \\
+Q &= \frac{2}{5}(b_{\rm e} - 1), \\
+\mathcal{I}_{\rm L}(k, z) &= \int_0^r dr' \frac{r-r'}{rr'}P_{\rm m}(k, z'), \\
+\mathcal{I}_{\rm ISW}(k, z) &= \int_0^r dr' W(r, r')\frac{\partial P_{\rm m}}{\partial \tau}(k, z').
+\end{align}
+
+\section{Practical Implementation}
+
+\subsection{Computational Methods}
+
+Numerical evaluation of the complete power spectrum requires careful treatment of several computational challenges. The line-of-sight integrals for lensing convergence and integrated Sachs-Wolfe effects must be computed accurately without relying on the Limber approximation, which breaks down on the large scales where these corrections are most important. The perturbative expansion for wide-angle corrections converges slowly on the largest scales, necessitating inclusion of multiple orders. Covariance matrices incorporating wide-separation corrections require evaluation of significantly more terms than in standard analyses, increasing computational cost substantially.
+
+The CosmoWAP code developed by Addis et al. [1] provides a publicly available implementation of the complete formalism including all corrections discussed here. The code computes power spectrum multipoles with full relativistic and wide-separation corrections, evaluates multi-tracer covariance matrices, and handles both local and integrated effects within a unified framework.
+
+\subsection{Observational Considerations}
+
+Implementing these corrections in analyses of real survey data requires accurate knowledge of several galaxy population properties. The evolution bias $b_{\rm e}$ and magnification bias $Q$ depend on the luminosity function and must be determined either from auxiliary observations or marginalizing over allowed parameter ranges. The parameter $s$ characterizes the radial selection function and requires careful modeling of survey geometry and selection effects. For multi-tracer analyses, the luminosity cut defining bright versus faint subsamples must be optimized to maximize the constraining power while maintaining sufficient number density in each subsample.
+
+\section{Summary}
+
+These notes have provided a comprehensive technical reference for relativistic and wide-angle corrections to the observed galaxy power spectrum. The complete expression for the monopole includes contributions from standard Kaiser clustering, non-integrated relativistic effects (Doppler and local gravitational redshift), integrated effects (lensing convergence, time delay, and integrated Sachs-Wolfe), and wide-separation corrections accounting for both angular and radial dependencies.
+
+The importance of these corrections varies with both scale and redshift. On small scales the standard Kaiser formula remains accurate, but on scales approaching the horizon ($k \sim \mathcal{H}$) the corrections become order unity and cannot be neglected. For next-generation surveys like Euclid and MegaMapper operating at high redshift and probing ultra-large scales, comprehensive treatment of all these effects is essential for unbiased cosmological inference.
+
+The formalism presented here follows the notation and framework of Addis et al. [1], incorporating recent advances in the treatment of wide-separation effects [3,11,12] and integrated contributions [2]. Multi-tracer techniques [9,10] provide enhanced sensitivity to relativistic effects and improved constraints on cosmological parameters. All expressions are given for the case $f_{\rm NL} = 0$, appropriate for analyses of the matter power spectrum in the absence of primordial non-Gaussianity.
+
+\begin{thebibliography}{99}
+
+\bibitem{ref:addis2025}
+{\color{myblue}[1]} C.~Addis, S.~L.~Guedezounme, J.~Hammond, C.~Clarkson, F.~Montano, S.~Camera, S.~Jolicoeur, and R.~Maartens,
+``Unbiased analysis of primordial non-Gaussianity: the multipoles of the full relativistic power spectrum,''
+{\color{myblue} \href{https://arxiv.org/abs/2511.09466}{arXiv:2511.09466}} [astro-ph.CO] (2025).
+
+\bibitem{ref:guedezounme2025}
+{\color{myblue}[2]} S.~L.~Guedezounme, S.~Jolicoeur, and R.~Maartens,
+``Primordial non-Gaussianity — the effects of relativistic and wide-angle corrections to the power spectrum,''
+JCAP {\bf 07} (2025) 063,
+{\color{myblue} \href{https://arxiv.org/abs/2412.06553}{arXiv:2412.06553}} [astro-ph.CO].
+
+\bibitem{ref:jolicoeur2024}
+{\color{myblue}[3]} S.~Jolicoeur, S.~L.~Guedezounme, R.~Maartens, P.~Paul, C.~Clarkson, and S.~Camera,
+``Relativistic and wide-angle corrections to galaxy power spectra,''
+JCAP {\bf 08} (2024) 027,
+{\color{myblue} \href{https://arxiv.org/abs/2406.06274}{arXiv:2406.06274}} [astro-ph.CO].
+
+\bibitem{ref:addis2024bispectrum}
+{\color{myblue}[4]} C.~Addis, C.~Guandalin, and C.~Clarkson,
+``Multipoles of the galaxy bispectrum on a light cone: wide-separation and relativistic corrections,''
+JCAP {\bf 04} (2025) 069,
+{\color{myblue} \href{https://arxiv.org/abs/2407.00168}{arXiv:2407.00168}} [astro-ph.CO].
+
+\bibitem{ref:yoo2010}
+{\color{myblue}[5]} J.~Yoo,
+``General Relativistic Description of the Observed Galaxy Power Spectrum: Do We Understand What We Measure?,''
+Phys.~Rev.~D {\bf 82} (2010) 083508,
+{\color{myblue} \href{https://arxiv.org/abs/1009.3021}{arXiv:1009.3021}} [astro-ph.CO].
+
+\bibitem{ref:bonvin2011}
+{\color{myblue}[6]} C.~Bonvin and R.~Durrer,
+``What galaxy surveys really measure,''
+Phys.~Rev.~D {\bf 84} (2011) 063505,
+{\color{myblue} \href{https://arxiv.org/abs/1105.5280}{arXiv:1105.5280}} [astro-ph.CO].
+
+\bibitem{ref:challinor2011}
+{\color{myblue}[7]} A.~Challinor and A.~Lewis,
+``The linear power spectrum of observed source number counts,''
+Phys.~Rev.~D {\bf 84} (2011) 043516,
+{\color{myblue} \href{https://arxiv.org/abs/1105.5292}{arXiv:1105.5292}} [astro-ph.CO].
+
+\bibitem{ref:bonvin2017}
+{\color{myblue}[8]} C.~Bonvin, L.~Hui, and E.~Gaztanaga,
+``The full-sky relativistic correlation function and power spectrum of galaxy number counts: I. Theoretical aspects,''
+Phys.~Rev.~D {\bf 89} (2014) 083535,
+{\color{myblue} \href{https://arxiv.org/abs/1708.00492}{arXiv:1708.00492}} [astro-ph.CO].
+
+\bibitem{ref:bonvin2014}
+{\color{myblue}[9]} C.~Bonvin,
+``Isolating relativistic effects in large-scale structure,''
+Class.~Quant.~Grav.~{\bf 31} (2014) 234002,
+{\color{myblue} \href{https://arxiv.org/abs/1409.2224}{arXiv:1409.2224}} [astro-ph.CO].
+
+\bibitem{ref:bonvin2016}
+{\color{myblue}[10]} C.~Bonvin, L.~Hui, and E.~Gaztanaga,
+``Asymmetric galaxy correlation functions,''
+Phys.~Rev.~D {\bf 89} (2014) 083535,
+{\color{myblue} \href{https://arxiv.org/abs/1309.1321}{arXiv:1309.1321}} [astro-ph.CO].
+
+\bibitem{ref:beutler2020}
+{\color{myblue}[11]} F.~Beutler and E.~Di~Dio,
+``Modeling relativistic contributions to the halo power spectrum dipole,''
+JCAP {\bf 07} (2020) 048,
+{\color{myblue} \href{https://arxiv.org/abs/2003.01976}{arXiv:2003.01976}} [astro-ph.CO].
+
+\bibitem{ref:noorikuhani2022}
+{\color{myblue}[12]} M.~Noorikuhani and R.~Scoccimarro,
+``Wide-angle and relativistic effects in Fourier-space clustering statistics,''
+Phys.~Rev.~D {\bf 107} (2023) 043504,
+{\color{myblue} \href{https://arxiv.org/abs/2211.04495}{arXiv:2211.04495}} [astro-ph.CO].
+
+\bibitem{ref:yamamoto2005}
+{\color{myblue}[13]} K.~Yamamoto, Y.~Suto, M.~Hirata, M.~Takada, and T.~Matsubara,
+``Geometric and dynamic distortions in the correlation function of galaxies,''
+Prog.~Theor.~Phys.~{\bf 106} (2001) 969.
+
+\bibitem{ref:kaiser}
+{\color{myblue}[14]} N.~Kaiser,
+``Clustering in real space and in redshift space,''
+Mon.~Not.~Roy.~Astron.~Soc.~{\bf 227} (1987) 1.
+
+\bibitem{ref:montano2024}
+{\color{myblue}[15]} F.~Montano and S.~Camera,
+``Detecting relativistic Doppler in galaxy clustering with tailored galaxy samples,''
+{\color{myblue} \href{https://arxiv.org/abs/2309.12400}{arXiv:2309.12400}} [astro-ph.CO] (2024).
+
+\end{thebibliography}
+
+\end{document}
